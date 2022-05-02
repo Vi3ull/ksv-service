@@ -1,0 +1,16 @@
+.container {
+  max-width: #{map-get($screens, 2xl)};
+  padding: 0 rem(15);
+  margin: 0 auto;
+  width: 100%;
+
+  @media screen and (min-width: #{map-get($screens, xl)}) {
+    max-width: rem(1170);
+  }
+  @media screen and (min-width: #{map-get($screens, lg)}) {
+    max-width: rem(970);
+  }
+  @media screen and (min-width: #{map-get($screens, md)}) {
+    max-width: rem(750);
+  }
+}

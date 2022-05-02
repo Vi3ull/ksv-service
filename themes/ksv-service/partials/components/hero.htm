@@ -1,0 +1,59 @@
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__carousel carousel scrollbar js-carousel">
+      <ul class="hero__inner carousel__inner js-carousel-inner">
+        {% for item in data.hero_item %}
+        <li class="hero__slide carousel__slide js-carousel-slide">
+          <picture>
+            <source 
+              srcset="
+                {{ item.image | media | resize(360, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }}, 
+                {{ item.image | media | resize(720, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }} 2x
+              " 
+              media="(max-width: 480px)"
+            > 
+            <source 
+              srcset="
+                {{ item.image | media | resize(768, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }},
+                {{ item.image | media | resize(1536, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }} 2x
+              " 
+              media="(max-width: 768px)"
+            >
+            <source 
+              srcset="
+                {{ item.image | media | resize(992, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }},
+                {{ item.image | media | resize(1984, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }} 2x
+              " 
+              media="(max-width: 992px)"
+            >
+            <img src="{{ item.image | media }}" alt="" loading="lazy" class="hero__slide-img">
+          </picture>
+          <div class="hero__slide-inner container">
+            {% if item.title %}
+            <div class="hero__slide-title">
+              {{ item.title | raw }}
+            </div>
+            {% endif %}
+
+            {% if item.description %}
+            <div class="hero__slide-description">
+              {{ item.description | raw }}
+            </div>
+            {% endif %}
+
+            {% if item.btn_link %}
+            <div class="hero__btn-inner">
+              <a href="{{ item.btn_link }}" class="btn btn--brd--white btn--rounded--sm">
+                {{ item.btn_text }}
+                {% partial 'common/icon' css="btn__icon" width="16px" height="16px" icon="arrow-right" %}
+              </a>
+            </div>
+            {% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      <ul class="hero__pagination carousel__pagination container"></ul>
+    </div>
+  </div>
+</section>

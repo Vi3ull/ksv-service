@@ -1,0 +1,48 @@
+.pricing-card {
+  padding: rem(70) rem(45);
+  background-color: var(--base-white);
+
+
+  // .pricing-card__title
+
+  &__title {
+    @include title($font-size: 22);
+  }
+
+  // .pricing-card__description
+
+  &__description {
+    @include description;
+  }
+
+  // .pricing-card__list
+
+  &__list {
+    list-style-type: none;
+    margin-bottom: rem(50);
+  }
+
+  // .pricing-card__list-item
+
+  &__list-item {
+    display: flex;
+    align-items: center;
+    font-family: map-get($fonts, ubuntu);
+    font-size: rem(14);
+    color: var(--light-black);
+    margin-bottom: rem(10);
+    
+    &::before {
+      content: '+';
+      display: inline-block;
+      color: var(--base-red);
+      margin-right: rem(10);
+    }
+  }
+
+  // .pricing-card__btn-inner
+
+  &__btn-inner {
+    font-weight: 600;
+  }
+}

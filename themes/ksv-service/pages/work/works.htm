@@ -1,0 +1,14 @@
+url = "/blog/:page?|^[0-9]+$"
+layout = "default"
+title = "Блог"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 9
+noPostsMessage = "Записей не найдено"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+==
+{% component "blogPosts" %}

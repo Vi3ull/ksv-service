@@ -1,0 +1,34 @@
+url = "/robots.txt"
+title = "Robots.txt"
+==
+<?php
+function onStart() {
+		$prop	= [
+			'siteUrl'		=> rtrim( Config::get( 'app.url' ), '/' ),
+			'backendUrl'	=> rtrim( Config::get( 'cms.backendUri' ), '/' ),
+		];
+
+		$content	= $this->theme->robots;
+
+		if( !$content || $content == '' ) {
+			$content			= $this->attributes[ 'markup' ];
+			$themeModel			= \Cms\Models\ThemeData::forTheme( $this->theme );
+			$themeModel->robots	= $content;
+			$themeModel->save();
+		}
+
+		return Response::make( \Twig::parse( $content, $prop ) )->header( 'Content-Type', 'text/plain' );
+	}
+?>
+==
+User-agent: *
+Allow: /
+Disallow: {{ backendUrl }}*
+
+Host: {{ siteUrl }}
+Sitemap: {{ siteUrl }}/sitemap.xml
+
+User-Agent: Yandex
+Allow: /
+Host: {{ siteUrl }}
+Sitemap: {{ siteUrl }}/sitemap.xml

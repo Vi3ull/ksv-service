@@ -1,0 +1,52 @@
+{
+  "private": true,
+  "name": "ksv-service",
+  "version": "1.0.0",
+  "description": "The wizard installation is the recommended way to install October for **non-technical users**. It is simpler than the command-line installation and doesn't require any special skills.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "mix --production",
+    "partytown": "partytown copylib public/~partytown"
+  },
+  "browserslist": [
+    "defaults",
+    "ie 11"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vi3ull/ksv-service.git"
+  },
+  "author": "Vi3ull",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vi3ull/ksv-service/issues"
+  },
+  "homepage": "https://github.com/Vi3ull/ksv-service#readme",
+  "dependencies": {
+    "@builder.io/partytown": "^0.5.2",
+    "dom-focus-lock": "^1.0.4",
+    "swiper": "^7.4.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "browser-sync": "^2.27.7",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "",
+    "core-js": "^3.8.3",
+    "laravel-mix": "^6.0.6",
+    "laravel-mix-clean": "^0.1.0",
+    "laravel-mix-polyfill": "^3.0.0",
+    "laravel-mix-webp": "^0.1.1",
+    "postcss": "^8.1.14",
+    "postcss-sort-media-queries": "^3.2.3",
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.32.5",
+    "sass-loader": "^10.1.1"
+  }
+}

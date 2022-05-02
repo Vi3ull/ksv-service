@@ -1,0 +1,19 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  & a:not([class]) {
+    text-decoration: none;
+    color: inherit;
+    transition: $transition;
+    
+    &:hover {
+      color: var(--medium-black);
+    }
+
+    &:focus-visible {
+      @extend %focus;
+    }
+  }
+}

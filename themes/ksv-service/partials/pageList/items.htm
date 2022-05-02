@@ -1,0 +1,10 @@
+{% for item in items if not item.viewBag.isHidden %}
+    <li class="page-list__item {{ classes }}">  
+        {% partial __SELF__ ~ "::link" item=item %}
+        {% if item.items %} 
+            <ul class="page-list__dropdown">
+                {% partial __SELF__ ~ "::items" items=item.items classes="page-list__dropdown-item" %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}

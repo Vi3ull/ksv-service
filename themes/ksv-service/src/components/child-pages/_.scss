@@ -1,0 +1,33 @@
+.child-pages {
+  display: flex;
+  flex-direction: column;
+
+  // .child-pages__item
+
+  &__item {
+
+  }
+
+  // .child-pages__link
+
+  &__link {
+    color: var(--base-black);
+    display: block;
+    font-family: map-get($fonts, hind);
+    font-size: rem(14);
+    font-weight: 700;
+    letter-spacing: .02em;
+    text-decoration: none;
+    transition: $transition;
+    padding: em(10);
+    margin: em(2);
+
+    &:hover {
+      background-color: var(--medium-white);
+    }
+
+    &:focus-visible { 
+      @extend %focus;
+    }
+  }
+}

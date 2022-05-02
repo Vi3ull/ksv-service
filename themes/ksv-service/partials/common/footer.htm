@@ -1,0 +1,79 @@
+[viewBag]
+==
+==
+{% set blockId = random() %}
+
+<footer class="footer">
+  <div class="footer__inner container">
+    <div class="footer__area-logo">
+      <div class="logo">
+        <a href="#" class="logo__link" title="Вернуться на главную">
+          {% partial 'common/icon' width="193.5px" height="28.5px" icon="logo-white" %}
+        </a>
+      </div>
+    </div>
+    <div class="footer__address">
+      {{ this.theme.address | raw }}
+    </div>
+    <div class="footer__contacts-group">
+      {% for item in this.theme.contacts %}
+        <a class="footer__contact" title="Связаться с KSV-Service" href="{{ item.type_contact }}:{{ item.value_contact }}">{{ item.value_contact }}</a>
+      {% endfor %}
+    </div>
+    <div class="footer__area-btn">
+      <a href="{{ this.theme.btn_link }}" class="footer__btn btn btn--bg-color--orange btn--rounded--lg btn--width--full js-modal-open">
+        {{ this.theme.btn_text }}
+        {% partial 'common/icon' width="16px" height="16px" icon="phone" css="btn__icon" %}  
+      </a>
+      {% partial "components/modal" 
+        title="Обратный звонок" 
+        body 
+      %}
+      {{ form_open({ 
+        request: "Feedback::onSend", 
+        class: "callback-form",
+        "data-request": "Callback::onSend",
+        "data-request-success": "$(this).find('input[type=text], input[type=email], textarea').val('');",
+        "data-request-flash": true
+      })}}
+        {% flash %}
+          <div class="alert alert--{{ type }}">
+            {{ message }}
+          </div>
+        {% endflash %}
+        {% partial "components/form/form-component" 
+          body 
+          class="callback-form__component" 
+          label="Имя" 
+          name="name" 
+        %}
+          {% partial "components/form/input" 
+            placeholder="Иванов Иван Иванович" 
+            name="name" 
+            id="name-" ~ blockId  
+            class="callback-form__field" 
+          %}
+        {%  endpartial %}
+
+        {% partial "components/form/form-component" 
+          body 
+          class="callback-form__component" 
+          label="Телефон" 
+          name="phone" 
+        %}
+          {% partial "components/form/input" 
+            placeholder="+7 (999) 999-99-99" 
+            name="phone" 
+            id="phone-" ~ blockId  
+            class="callback-form__field" 
+          %}
+        {%  endpartial %}
+        <button type="submit" class="callback-form__btn btn btn--bg-color--orange btn--rounded--sm">Отправить</button>
+      {{ form_close() }}
+      <br>
+      <p>Заполните данную форму и наши операторы свяжутся с вами в течении ближайших 5 минут.</p>
+      {% endpartial %}
+    </div>
+    {% component "footerMenu" %}
+  </div>
+</footer>

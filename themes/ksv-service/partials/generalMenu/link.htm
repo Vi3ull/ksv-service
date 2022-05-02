@@ -1,0 +1,16 @@
+{% if item.url %}
+  <a 
+    href="{{ item.code ? item.code : item.url }}" 
+    class="
+      main-menu__link
+      {{ item.active ? ' main-menu__link--state--active' : '' }}
+      {{ classes }}
+    "
+    title="{{ item.title }}"
+    {{ item.viewBag.isExternal ? 'target="_blank"' }}
+  >
+    {{ item.title }}
+  </a>
+{% else %}
+  <span class="main-menu__link main-menu__link--state--inactive">{{ item.title }}</span>
+{% endif %}

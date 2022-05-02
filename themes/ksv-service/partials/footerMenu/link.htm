@@ -1,0 +1,7 @@
+{% if item.url %}
+  <a href="{{ item.url }}" class="footer__menu-link" title="{{ item.title }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
+    {{ item.title }}
+  </a>
+{% else %}
+  <span class="footer__menu-link">{{ item.title }}</span>
+{% endif %}

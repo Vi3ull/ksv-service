@@ -1,0 +1,22 @@
+<section class="services">
+  <div class="services__inner container">
+    <ul class="services__categories-list">
+      {% for item in categories %}
+      <li class="services__categories-item">
+        <a href="{{ item.slug }}" class="services__categories-link">{{ item.name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <ul id="list" class="services__list">
+      {% partial '@list' %}
+    </ul>
+  </div>
+  {% if items.hasPages %}
+  <div id="btn-load-more" class="services__btn-inner">     
+    <a data-request="onLoadMore" data-request-data="page: 1" href="{{ btn_link }}" class="btn btn--bg-color--black btn--rounded--sm">
+      Показать еще
+      {% partial 'common/icon' width="16px" height="16px" icon="arrow-down" css="btn__icon" %}  
+    </a>
+  </div>
+  {% endif %}
+</section>

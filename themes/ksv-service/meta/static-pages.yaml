@@ -1,0 +1,6 @@
+static-pages:
+    home: {  }
+    about:
+        about-test:
+            about-test-vlozhennyj-test: {  }
+    contacts: {  }

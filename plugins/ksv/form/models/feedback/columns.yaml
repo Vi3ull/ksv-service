@@ -1,0 +1,24 @@
+columns:
+    id:
+        label: ID
+        searchable: true
+
+    name:
+        label: Имя
+        span: auto
+
+    phone:
+        label: Телефон
+        span: auto
+
+    email:
+        label: E-mail
+        span: auto
+
+    form_message:
+        label: Сообщение
+        span: auto
+
+    created_at:
+        label: Дата
+        type: datetime

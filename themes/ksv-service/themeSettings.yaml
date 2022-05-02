@@ -1,0 +1,105 @@
+tabs:
+  fields:
+  
+    # INCLUDE
+
+    include_head:
+        label: Head
+        comment: Вставляет код в head секцию страницы
+        default:
+        size: large
+        span: full
+        type: textarea
+        tab: Includes
+        translatable: true
+    include_body_begin:
+        label: Body begin
+        comment: Вставляет код в тело страницы сразу после <body>
+        default:
+        size: large
+        span: full
+        type: textarea
+        tab: Includes
+    include_body_end:
+        label: Body end
+        comment: Вставляет код в тело страницы перед </body>
+        default:
+        size: large
+        span: full
+        type: textarea
+        tab: Includes
+    robots:
+        label: Robots.txt
+        comment: "Доступны переменные: {{ url }} - адрес сайта, {{ backendUrl }} - админка"
+        default:
+        size: large
+        span: full
+        type: textarea
+        tab: Includes
+
+    # GENERAL
+
+    general_section:
+      tab: Общие настройки
+      label: Настройки сайта
+      type: section
+
+    site_name:
+      tab: Общие настройки
+      label: Название сайта
+      type: text
+      span: left
+
+    favicon:
+      tab: Общие настройки
+      label: Значок сайта
+      type: fileupload
+      span: right
+
+    # FOOTER
+
+    footer_section:
+      tab: Общие настройки
+      label: Подвал сайта
+      type: section
+
+    address:
+      tab: Общие настройки
+      label: Адрес
+      type: richeditor
+      span: left
+
+    contacts:
+      tab: Общие настройки      
+      label: Котактны
+      type: repeater
+      prompt: Добавить контакт
+      span: right
+      style: collapsed
+      form: 
+        fields:
+          type_contact: 
+            label: Тип
+            type: dropdown
+            placeholder: Выберите тип
+            options: 
+              mailto: Почта
+              tel: Телефон
+            # options: \KSV\Helpers\Plugin::staticMethodOptions
+          value_contact:
+            label: Телефон/Почта
+            type: text
+
+    btn_text:
+      tab: Общие настройки      
+      label: Текст кнопки
+      type: text
+      span: left
+      default: Обратный звонок
+
+    btn_link: 
+      tab: Общие настройки      
+      label: Ссылка кнопки
+      type: text
+      span: right
+      default: /contacts

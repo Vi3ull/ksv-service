@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkksv_service=self.webpackChunkksv_service||[]).push([[850],{1838:function(e,n,t){t.r(n),t.d(n,{default:function(){return o}});t(1539),t(4747);var c=function(e){e.target.open&&document.querySelectorAll(".js-accordion > .js-accordion-item > details[open]").forEach((function(n){n!==e.target&&(n.open=!1)}))};function o(e){e.querySelectorAll(".js-accordion-item > details").forEach((function(e){return e.addEventListener("toggle",c)}))}}}]);
+//# sourceMappingURL=accordion.js.map

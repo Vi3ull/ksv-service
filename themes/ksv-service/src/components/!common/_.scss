@@ -1,0 +1,20 @@
+@import './constants';
+@import './functions';
+@import './reset';
+@import './mixins';
+@import './placeholders';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: $baseFontSize;
+  color: var(--base-black);
+  background-color: #fff;
+}
+
+.bg {
+  &--color {
+    &--light-white {
+      background-color: var(--light-white);
+    }
+  }
+}

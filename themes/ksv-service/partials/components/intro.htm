@@ -1,0 +1,16 @@
+<div class="intro {{ classes }}">
+  <div class="intro__title">
+    {{ title | raw }}
+  </div>
+  <div class="intro__description">
+    {{ description | raw }}
+  </div>
+  {% if btn_link %}
+  <div class="intro__btn-inner">
+    <a href="{{ btn_link }}" class="btn btn--bg-color--black btn--rounded--sm">
+      {{ btn_text }}
+      {% partial 'common/icon' width="16px" height="16px" icon="arrow-right" css="btn__icon" %}  
+    </a>
+  </div>
+  {% endif %}
+</div>

@@ -1,0 +1,21 @@
+<section class="services">
+  <div class="services__inner container">
+    {% partial "components/intro" 
+      classes="services__intro" 
+      title=data.title
+      description=data.description 
+    %}
+    <ul class="services__list">
+      {% for item in data.list %}
+      <li class="services__list-item">
+        {% 
+          partial "components/service-card" 
+          title=item.title
+          description=item.description 
+          href=item.link
+        %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

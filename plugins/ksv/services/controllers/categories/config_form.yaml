@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Category
+
+# Model Form Field configuration
+form: $/ksv/services/models/category/fields.yaml
+
+# Model Class name
+modelClass: KSV\Services\Models\Category
+
+# Default redirect location
+defaultRedirect: ksv/services/categories
+
+# Create page
+create:
+    title: Создать Категорию
+    redirect: ksv/services/categories/update/:id
+    redirectClose: ksv/services/categories
+
+# Update page
+update:
+    title: Обновить категорию
+    redirect: ksv/services/categories
+    redirectClose: ksv/services/categories
+
+# Preview page
+preview:
+    title: Просмотреть категорию

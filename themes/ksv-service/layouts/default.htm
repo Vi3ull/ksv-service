@@ -1,0 +1,91 @@
+description = "Шаблон по умолчанию"
+
+[staticPage]
+useContent = 0
+default = 0
+
+[staticMenu generalMenu]
+code = "general-menu"
+
+[staticBreadcrumbs]
+
+[childPages]
+
+[staticMenu footerMenu]
+code = "footer-menu"
+
+[Feedback]
+email = "web@ksv-group.com"
+
+[Callback]
+email = "web@ksv-group.com"
+==
+{variable 
+  name="isHeaderFixed" 
+  tab="Контент страницы"
+  label="Зафиксировать шапку сайта"
+  type="switch"
+  span="left"
+}
+{/variable}
+
+{variable 
+  name="isHasSidebar" 
+  tab="Контент страницы"
+  label="Добавить сайдбар"
+  type="switch"
+  span="right"
+}
+{/variable}
+
+{variable 
+  name="pageContent" 
+  tab="Контент страницы"
+  label="Контент страницы"
+  type="repeater"
+  prompt="Добавить блок"
+  style="collapsed"
+  span="full"
+  groups="~/themes/ksv-service/partials/components/config.yaml"
+}
+{/variable}
+
+{% spaceless %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  {% partial 'common/head' %}
+</head>
+  <body class="page">
+    {{ this.theme.include_body_begin }}
+    {% partial 'common/header' %}
+
+    {% if this.page.id != 'home' %}
+      {% partial 'common/breadcrumbs' %}
+    {% endif %}
+    
+    <div class="content{{this.page.id == 'home' ? '' : ' container'}}">
+      <main class="main">
+        {% partial "components/_" components=pageContent %}
+        {% page %}
+      </main>    
+      
+      {% if isHasSidebar %}
+      <aside class="sidebar">
+          <div class="sidebar__block">
+            <div class="sidebar__title">
+              Подстраницы
+            </div>
+            {% component "childPages" %}
+          </div>
+      </aside>
+      {% endif %}
+    </div>
+    
+    {% partial 'common/footer' %}
+    
+    {% partial 'common/scripts' %}
+    {{ this.theme.include_body_end }}
+  </body>
+</html>
+{% endspaceless %}

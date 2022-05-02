@@ -1,0 +1,21 @@
+.intro {
+  padding: 0 0 rem(60) 0;
+
+  // .intro__title
+
+  &__title {
+    @include title;
+  }
+
+  // .intro__description
+
+  &__description {
+    @include description;
+  }
+
+  // .intro__btn-inner
+
+  &__btn-inner {  
+    font-weight: 600;
+  }
+}

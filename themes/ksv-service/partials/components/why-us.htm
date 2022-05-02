@@ -1,0 +1,16 @@
+<section class="why-us bg--color--light-white">
+  <div class="why-us__inner container">
+    {% partial "components/intro" 
+      classes="why-us__intro" 
+      title=data.title
+      description=data.description 
+      btn_link=data.btn_link
+      btn_text=data.btn_text
+    %}
+    {% if data.accordion %}
+    <div class="why-us__accordion">
+      {% partial 'components/accordion' data=data.accordion %}
+    </div>
+    {% endif %}
+  </div>
+</section>

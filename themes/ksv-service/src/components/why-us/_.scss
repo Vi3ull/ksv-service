@@ -1,0 +1,41 @@
+.why-us {
+  @include py-100; 
+
+  // .why-us__inner
+
+  &__inner {
+    @include grid;
+  }
+
+  // .why-us__intro
+
+  &__intro {
+    grid-column-start: span 12;
+    margin-top: rem(50);
+    width: 100%;
+    @media screen and (min-width: #{map-get($screens, md)}) {
+      grid-column-start: span 5;  
+    }
+  }
+
+  // .why-us__title
+
+  &__title {
+    @include title; 
+  }
+
+  // .why-us__description
+
+  &__description {  
+    @include description;
+  }
+
+  // .why-us__accordion
+
+  &__accordion {
+    grid-column-start: span 12;
+    @media screen and (min-width: #{map-get($screens, md)}) {
+      grid-column: 7/13;  
+    }
+  }
+}

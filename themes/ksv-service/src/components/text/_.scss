@@ -1,0 +1,42 @@
+.text {
+  font-family: map-get($fonts, hind);
+  padding: em(15) 0;
+
+  h1:not([class]), .h1, 
+  h2:not([class]), .h2, 
+  h3:not([class]), .h3, 
+  h4:not([class]), .h4, 
+  h5:not([class]), .h5, 
+  h6:not([class]), .h6 {
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 rem(15);
+  }
+
+  h1:not([class]), .h1 {font-size: rem(40);}
+  h2:not([class]), .h2 {font-size: rem(30);} 
+  h3:not([class]), .h3 {font-size: rem(20);} 
+  h4:not([class]), .h4 {font-size: rem(20);} 
+  h5:not([class]), .h5 {font-size: rem(10);} 
+  h6:not([class]), .h6 {font-size: rem(10);}
+
+  p:not([class]),
+  span:not([class]) {
+    font-size: rem(16);
+    font-weight: 400;
+    color: var(--base-gray);
+    margin: 0 0 rem(16);
+  }
+
+  a:not([class]) {
+    font-size: rem(16);
+    font-weight: 400;
+    transition: $transition;
+    color: var(--base-orange);
+    text-decoration: none;
+    
+    &:hover {
+      color: var(--base-red);
+    }
+  }
+}

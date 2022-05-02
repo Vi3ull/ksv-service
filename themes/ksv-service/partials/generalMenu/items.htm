@@ -1,0 +1,16 @@
+{% for item in items if not item.viewBag.isHidden %}
+    <li class="main-menu__item{{ item.items ? ' dropdown js-dropdown' : '' }}">  
+        {% if item.items %} 
+            {% partial __SELF__ ~ "::link" item=item classes=' dropdown__link js-dropdown-btn-open' %} 
+            <ul class="dropdown__menu scrollbar js-dropdown-menu">
+                <button type="button" class="dropdown__btn-back js-dropdown-btn-close">{{ item.title }}</button>
+                <li class="main-menu__item">
+                    {% partial __SELF__ ~ "::link" item=item %}
+                </li>
+                {% partial __SELF__ ~ "::items" items=item.items %}
+            </ul>
+        {% else %}
+            {% partial __SELF__ ~ "::link" item=item %}
+        {% endif %}
+    </li>
+{% endfor %}

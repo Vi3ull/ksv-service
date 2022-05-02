@@ -1,0 +1,26 @@
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+
+  // .feedback-form__component
+
+  &__component {
+    margin-bottom: em(30);
+    text-align: left;
+  }
+
+  // ..feedback-form__field
+
+  &__field {
+    border-bottom: 2px solid var(--base-black);
+    outline-color: var(--base-black);
+  }
+
+  // .feedback-form__btn
+
+  &__btn {
+    font-weight: 600;
+    letter-spacing: .1em;
+    margin: em(30) auto 0;
+  }
+} 

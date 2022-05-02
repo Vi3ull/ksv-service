@@ -1,0 +1,14 @@
+columns:
+    name:
+        label: Имя
+        span: full
+        readOnly: true
+
+    phone:
+        label: Телефон
+        span: auto
+        readOnly: true
+
+    created_at:
+        label: Дата
+        type: datetime

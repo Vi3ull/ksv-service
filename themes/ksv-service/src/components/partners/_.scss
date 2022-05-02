@@ -1,0 +1,42 @@
+.partners {
+  @include py-100;
+  border-top: 1px solid var(--section-separator);
+
+  // .partners__inner
+
+  &__inner {
+  }
+
+  // .partners__carousel
+
+  &__carousel {
+    --carouselSlidesCount: 1;
+
+    @media screen and (min-width: #{map-get($screens, xxs)}) {
+      --carouselSlidesCount: 2;
+    }
+    @media screen and (min-width: #{map-get($screens, sm)}) {
+      --carouselSlidesCount: 3;
+    }
+    @media screen and (min-width: #{map-get($screens, lg)}) {
+      --carouselSlidesCount: 5;
+    }
+  }
+
+  // .partners__slide
+
+  &__slide {
+  }
+
+  // .partners__slide-img
+
+  &__slide-img {
+    display: block;
+    margin: 0 auto;
+    transition: $transition;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}

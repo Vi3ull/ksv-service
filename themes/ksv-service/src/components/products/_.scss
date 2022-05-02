@@ -1,0 +1,32 @@
+.products {
+  @include py-100;
+
+  // .products__inner
+
+  &__inner {
+  }
+
+  // .products__intro
+
+  &__intro {
+    @media screen and (min-width: #{map-get($screens, md)}) {
+      width: 50%;
+    }
+  }
+
+
+  // .products__list
+
+  &__list {
+    @include grid;
+  }
+
+  // .products__list-item
+  
+  &__list-item {
+    grid-column: span 12;
+    @media screen and (min-width: #{map-get($screens, md)}) {
+      grid-column: span 4;
+    }
+  }
+}

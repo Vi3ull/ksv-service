@@ -1,0 +1,46 @@
+{% from "components/modal" import footer as modalFooter %}
+
+<section class="work">
+  <div class="work__inner container">
+    {% partial "components/intro" 
+      classes="work__intro" 
+      title=data.title
+      description=data.description 
+    %}
+    <ul class="work__list">
+      {% for item in data.list %}
+      <li class="work__list-item">
+        <div class="work-card">
+          <a href="{{ item.link }}" title="{{ item.title | raw }}" class="work-card__link js-modal-open">
+            {{ item.title | raw }}
+          </a>
+          <picture class="work-card__img-wrap">
+            <source 
+              srcset="
+                {{ item.image | media | resize(360, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }}, 
+                {{ item.image | media | resize(720, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }} 2x
+              " 
+              media="(max-width: 480px)"
+            >
+            <source 
+              srcset="
+                {{ item.image | media | resize(768, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }},
+                {{ item.image | media | resize(1536, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }} 2x
+              " 
+              media="(max-width: 768px)"
+            >
+            <img src="{{ item.image | media | resize(640, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }}" alt="{{ item.title }}" loading="lazy" class="work-card__img">
+          </picture>
+          {% partial "components/modal" 
+            title=item.title 
+            body 
+            footer=modalFooter(item.tags) 
+          %}
+            {{ item.description | raw }}
+          {% endpartial %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

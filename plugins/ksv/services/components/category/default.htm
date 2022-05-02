@@ -1,0 +1,17 @@
+{% set categories = __SELF__.categories %} 
+
+<ul>
+  {% for category in categories %}
+      <li>
+          <a href="/catalog-service/{{ category.slug }}">{{ category.name }}</a>
+      </li>
+  {% endfor %}
+</ul>
+
+<hr>
+
+<ul>
+  {% partial '@list' %}
+</ul>
+
+{{ items.render|raw }}

@@ -1,0 +1,44 @@
+@function rem($pixels, $context: $baseFontSize) {
+  @if (unitless($pixels)) {
+      $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+      $context: $context * 1px;
+  }
+
+  @return calc($pixels / $context) * 1rem;
+}
+
+@function lh( $font-size, $line-height ) {
+  @return $line-height / $font-size;
+}
+
+@function em($pixels, $context: $baseFontSize) {
+  @if (unitless($pixels)) {
+      $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+      $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+@function color( $key ) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn "Unknown `#{$key}in colors.";
+  @return null; 
+}
+
+@function screen( $size ) {
+  @if map-has-key($screens, $size) {
+    @return map-get($screens, $size);
+  } @else {
+    @return $size
+  }
+}

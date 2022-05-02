@@ -1,0 +1,12 @@
+url = "/services/:category/:page?|^[0-9]+$"
+layout = "default"
+title = "Категория услуг"
+is_hidden = 0
+
+[ServicesCategory]
+slug = "{{ :category }}"
+perPage = 9
+pageNumber = "{{ :page }}"
+type = "category"
+==
+{% component 'ServicesCategory' %}

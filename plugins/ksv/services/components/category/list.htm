@@ -1,0 +1,7 @@
+{% set items = __SELF__.items %}
+
+{% for item in items %}
+  <li>
+    <a href="/catalog-service/{{ item.category.slug }}/{{ item.slug }}">{{ item.name }}</a>
+  </li>
+{% endfor %}

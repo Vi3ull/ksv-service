@@ -1,0 +1,43 @@
+@mixin grid($columns: 12, $column-gap: 30, $row-gap: 30) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  column-gap: rem($column-gap);
+  row-gap: rem($row-gap);
+}
+
+@mixin py-100 {
+  padding: rem(100) 0;
+}
+
+@mixin title($font-size: 30, $color: var(--base-black)) {
+  font-family: map-get($fonts, hind);
+  font-size: rem($font-size);
+  font-weight: 700;
+  color: $color;
+  line-height: 1.4;
+  margin: 0 0 rem(15);
+}
+
+@mixin description($font-size: 16, $color: var(--base-gray)) {
+  font-family: map-get($fonts, hind);
+  font-size: rem($font-size);
+  font-weight: 400;
+  line-height: 1.4;
+  color: $color;
+  margin: 0 0 rem(15);
+}
+
+@mixin img-wrap($aspect-ratio: 1/1) {
+  position: relative;
+  height: 0;
+  padding-bottom: calc(100%/($aspect-ratio));
+}
+
+@mixin img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

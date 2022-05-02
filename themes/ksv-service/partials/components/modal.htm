@@ -1,0 +1,24 @@
+<div class="modal js-modal">
+  <div class="modal__wrapper js-modal-wrapper scrollbar">
+    <button type="button" class="modal__close js-modal-close">
+      Закрыть
+    </button>
+    <div class="modal__content">
+      <div class="modal__title">
+        {{ title | raw }}
+      </div>
+      <div class="modal__body">
+        {{ body | raw }}
+      </div>
+        {{ footer | raw }}
+    </div>
+  </div>
+</div>
+
+{% macro footer(tags) %}
+  <ul class="modal__footer">
+    {% for tag in tags %}
+      <li class="modal__footer-item">{{ tag.name }}{{ loop.last ? '' : ',' }}</li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

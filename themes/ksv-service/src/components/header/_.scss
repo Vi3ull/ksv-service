@@ -1,0 +1,77 @@
+.header {
+  --headerInnerHeight: #{rem(97)};
+  --headerMaxWidth: #{rem(365)};
+  --bg-color: #fff;
+
+  width: 100%;
+  background-color: var(--bg-color);
+  z-index: map-get($z-layers, header);
+
+  // .header__area-logo
+
+  &__area-logo {
+    padding: rem(15) 0;
+  }
+
+  // .header__inner
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--headerInnerHeight);
+  }
+
+  // .header__area-menu
+
+  &__area-menu {
+    --menuOpacity: 0;
+    --menuHeight: #{rem(1)};
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: var(--menuOpacity);
+    background-color: var(--bg-color);
+    max-width: var(--headerMaxWidth);
+    width: 100%;
+    z-index: 100;
+    height: var(--menuHeight);
+    transition: all .3s cubic-bezier(.7,1,.7,1);
+    overflow: hidden;
+
+    .main-menu--show & {
+      --menuOpacity: 1;
+      --menuHeight: 100vh;
+    }
+
+    &:before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--overlay);
+      width: calc(100% - var(--headerMaxWidth));
+      transition: $transition;
+      
+      .main-menu--show & {
+        bottom: 0;
+      }
+    } 
+  }
+
+  // .header__toggler-area
+
+  &__toggler-area {
+  }
+
+  // .header--position--fixed
+
+  &--position--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}

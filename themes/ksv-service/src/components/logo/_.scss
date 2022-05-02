@@ -1,0 +1,23 @@
+.logo {
+  width: 100%;
+  height: 100%;
+
+  // .logo__link
+
+  &__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+
+    &:focus-visible {
+      @extend %focus;
+    }
+  }
+
+  // .logo__img
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+}

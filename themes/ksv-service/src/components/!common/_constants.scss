@@ -1,0 +1,60 @@
+:root {
+  --base-white: #ffffff;
+  --light-white: #fafafa;
+  --medium-white: #f3f4f5;
+
+  --base-gray: #a6a7aa;
+  --light-gray: #bfc1c7;
+  --medium-gray: #c5c6cb; 
+  --dark-gray: #aaacb3;
+
+  --base-black: #515769;
+  --light-black: #81848f;
+  --medium-black: #999caa;
+
+  --base-orange: #FD871F;
+  --base-blue: #17bed2;
+  --base-red: #ff0000;
+
+  --overlay: rgba(81,87,105,.4); 
+  --section-separator: #edf0f2;
+}
+
+$wrapperPadding: 15px;
+$baseFontSize: 16px;
+$baseFontWeight: 500;
+$baseLineHeight: 1;
+
+$transition: all, .3s cubic-bezier(.7,1,.7,1);
+
+$screens: (
+  xs: 360px,
+  xxs: 480px, 
+  sm: 640px, 
+  md: 768px, 
+  lg: 992px, 
+  xl: 1280px,
+  2xl: 1536px,
+ ) !default; 
+
+$colors: (
+  base-black: #515769,
+  base-white: #ffffff, 
+  base-orange: #FD871F,
+  base-blue: #17bed2,
+  base-gray: #a6a7aa, 
+  base-red: #ff0000,
+);
+
+$z-layers: (
+  default: 1,
+  link: 3,
+  dp-menu: 4,
+  header: 99,
+  modal: 100, 
+);
+
+$fonts : (
+  ubuntu: ('Ubuntu', Helvetica, Arial, sans-serif),
+  hind: ('Hind', sans-serif),
+);

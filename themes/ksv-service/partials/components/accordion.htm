@@ -1,0 +1,14 @@
+<ul class="accordion__list js-accordion">
+  {% for item in data %}
+  <li class="accordion__list-item js-accordion-item">
+    <details class="details"{{ loop.index == 1 ? 'open' : '' }}>
+      <summary class="details__summary">
+        {{ item.title | raw }}
+      </summary>
+      <div class="details__content">
+        {{  item.description | raw }}
+      </div>
+    </details>
+  </li>
+  {% endfor %}
+</ul>

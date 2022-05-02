@@ -1,0 +1,9 @@
+{% if __SELF__.pages is not empty %}
+    <ul class="child-pages">
+        {% for page in __SELF__.pages %}
+            <li class="child-pages__item">
+                <a href="{{ page.url | app }}" class="child-pages__link">{{ page.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

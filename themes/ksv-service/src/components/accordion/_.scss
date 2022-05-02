@@ -1,0 +1,15 @@
+.accordion {
+  background-color: var(--base-white);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+
+  // .accordion__list
+
+  &__list {
+  }
+
+  // .accordion__list-item
+
+  &__list-item {
+    margin-bottom: 10px;
+  }
+}

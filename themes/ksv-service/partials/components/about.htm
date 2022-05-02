@@ -1,0 +1,35 @@
+<section class="about">
+  <ul class="about__list container">
+    {% for item in data.about_item %}
+      <li class="about__list-item">
+        <article class="about-card">
+          <div class="about-card__title">
+            {{ item.title | raw }}
+          </div>
+          <div class="about-card__description">
+            {{ item.description | raw }}
+          </div>
+          <div class="about-card__img-wrap">
+            <picture>
+              <source 
+                srcset="
+                  {{ item.image | media | resize(360, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }}, 
+                  {{ item.image | media | resize(720, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }} 2x
+                " 
+                media="(max-width: 480px)"
+              >
+              <source 
+                srcset="
+                  {{ item.image | media | resize(640, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }},
+                  {{ item.image | media | resize(1280, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }} 2x
+                " 
+                media="(max-width: 768px)"
+              >
+              <img src="{{ item.image | media | resize(320, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }}" alt="" loading="lazy" class="about-card__img">
+            </picture>
+          </div>
+        </article>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

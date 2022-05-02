@@ -1,0 +1,27 @@
+fields:
+    created_at:
+        label: Дата
+        type: datepicker
+        readOnly: true
+
+    name:
+        label: Имя
+        span: full
+        readOnly: true
+
+    phone:
+        label: Телефон
+        span: auto
+        readOnly: true
+
+    email:
+        label: E-mail
+        span: auto
+        type: email
+        readOnly: true
+
+    form_message:
+        label: Сообщение
+        type: textarea
+        span: full
+        readOnly: true

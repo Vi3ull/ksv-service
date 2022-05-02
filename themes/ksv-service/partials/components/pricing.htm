@@ -1,0 +1,34 @@
+<section class="pricing">
+  <div class="pricing__inner container">
+    <ul class="pricing__list">
+      {% for item in data.pricing_item %}
+      <li class="pricing__list-item">
+        <div class="pricing-card">
+          <div class="pricing-card__title">
+            {{ item.title | raw }}
+          </div>
+          {% if item.description %}
+          <div class="pricing-card__description">
+            {{ item.description | raw }}
+          </div>
+          {% endif %}
+          {% if item.list %}
+          <ul class="pricing-card__list">
+            {% for list_item in item.list %}
+            <li class="pricing-card__list-item">{{ list_item.text }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% if item.btn_link %}
+          <div class="pricing-card__btn-inner">
+            <a href="{{ item.btn_link }}" class=" btn btn--bg-color--medium-white btn--rounded--sm">
+              {{ item.btn_text }}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

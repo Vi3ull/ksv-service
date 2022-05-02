@@ -1,0 +1,22 @@
+$numColumns: 12;
+$gutterWidth: 15px;
+  
+.row {
+  display: grid;
+  grid-template-columns: repeat($numColumns, 5fr);
+  grid-gap: $gutterWidth;
+}
+
+[class^=col-]{
+  grid-column-end: span $numColumns;
+}
+
+@each $size, $abbr in (0,xs),(768px,sm),(992px,md),(992px,lg){
+  @media (min-width: $size){
+    @for $i from 1 through $numColumns{
+      .col-#{$abbr}-#{$i}{
+        grid-column-end: span $i;
+      }
+    }
+  }
+}

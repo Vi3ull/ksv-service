@@ -1,0 +1,35 @@
+==
+
+==
+<header class="header{{ isHeaderFixed ? ' header--position--fixed' : ''}}">
+  <div class="header__inner container">
+    <div class="header__area-logo">
+      <div class="logo">
+        <a href="/" class="logo__link" title="Вернуться на главную" tabindex="1">
+          {% partial 'common/icon' width="129px" height="19px" icon="logo" %}
+        </a>
+      </div>
+    </div>
+    <div class="header__area-menu">
+      <div class="main-menu js-main-menu">
+        <div class="main-menu__header">
+          <button class="main-menu__btn-close js-main-menu-toggler">
+            {% partial 'common/icon' width="20px" height="20px" icon="close" css="main-menu__btn-icon" %}
+          </button>
+        </div>
+        <nav class="main-menu__nav scrollbar" role="navigation">
+          {% component "generalMenu" %}
+        </nav>
+        <div class="main-menu__footer">
+          
+        </div>
+      </div>   
+    </div>
+    <div class="header__toggler-area">
+      <a href="/page-list" class="menu-toggle js-main-menu-toggler" data-x="" title="Переключатель меню" tabindex="1" role="button">
+        <span class="menu-toggle__text">Меню</span>
+        <span class="menu-toggle__icon"></span>
+      </a>
+    </div>
+  </div>
+</header>

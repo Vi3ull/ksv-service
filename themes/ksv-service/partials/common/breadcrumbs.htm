@@ -1,0 +1,19 @@
+<section class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="breadcrumbs__inner container">
+    <div class="breadcrumbs__title">
+      {{ this.page.title }}
+    </div>
+    {% if breadcrumbs %}
+    <ul class="breadcrumbs__list">
+      <li class="breadcrumbs__item">
+        <a href="/" class="breadcrumbs__link">Главная</a>
+      </li>
+      {% for breadcrumb in breadcrumbs %}
+        <li class="breadcrumbs__item{{ breadcrumb.isActive ? ' breadcrumbs--state--active' : '' }}">
+          <a href="{{ breadcrumb.url }}" class="breadcrumbs__link">{{ breadcrumb.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</section>

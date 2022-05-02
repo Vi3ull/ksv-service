@@ -1,0 +1,67 @@
+.work {
+  @include py-100;
+
+  // .work__inner
+
+  &__inner {
+  }
+
+  // .work__intro
+
+  &__intro {
+    @media screen and (min-width: #{map-get($screens, md)}) {
+      width: 50%;
+    }
+  }
+
+
+  // .work__list
+
+  &__list {
+    @include grid($columns: 1);
+    grid-template-areas: none;
+    
+    @media screen and (min-width: #{map-get($screens, md)}) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 
+        "work1 work2" 
+        "work3 work4"
+        "work5 work4";
+    }
+
+    @media screen and (min-width: #{map-get($screens, lg)}) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: 
+        "work1 work2 work3"
+        "work4 work5 work5";
+    }
+  }
+
+  // .work__list-item
+
+  &__list-item {
+    display: block;
+
+    @media screen and (min-width: #{map-get($screens, md)}) {
+      &:nth-child(1) {
+        grid-area: work1;
+      }
+  
+      &:nth-child(2) {
+        grid-area: work2;
+      }
+  
+      &:nth-child(3) {
+        grid-area: work3;
+      }
+  
+      &:nth-child(4) {
+        grid-area: work4;
+      }
+  
+      &:nth-child(5) {
+        grid-area: work5;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<section class="products">
+  <div class="products__inner container">
+    {% partial "components/intro" 
+      classes="products__intro" 
+      title=data.title
+      description=data.description 
+      btn_link=data.btn_link
+      btn_text=data.btn_text
+    %}
+    {% if data.list %}
+    <ul class="products__list">
+      {% for item in data.list %}
+      <li class="products__list-item">
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <picture>
+              <source 
+                srcset="
+                  {{ item.image | media | resize(360, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }}, 
+                  {{ item.image | media | resize(720, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }} 2x
+                " 
+                media="(max-width: 480px)"
+              >
+              <source 
+                srcset="
+                  {{ item.image | media | resize(768, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }},
+                  {{ item.image | media | resize(1536, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }} 2x
+                " 
+                media="(max-width: 768px)"
+              >
+              <source 
+                srcset="
+                  {{ item.image | media | resize(992, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }},
+                  {{ item.image | media | resize(1984, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }} 2x
+                " 
+                media="(max-width: 992px)"
+              >
+              <img src="{{ item.image | media | resize(360, false, { mode: 'crop', quality: '80', extension: 'jpeg' }) }}" alt="" loading="lazy" class="product-card__img">
+            </picture>
+          </div>
+          <div class="product-card__title">
+            {{ item.title | raw }}
+          </div>
+          <div class="product-card__description">
+            {{ item.description | raw }}
+          </div>
+          {% if item.btn_link %}
+          <a href="{{ item.btn_link }}" class="product-card__link" title="{{ item.title }}">
+            {{ item.btn_text }}
+            {% partial 'common/icon' css="product-card__icon" width="14px" height="14px" icon="plus-sm" %}
+          </a>
+          {% endif %}
+        </article>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</section>

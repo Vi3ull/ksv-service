@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Услуга
+
+# Model Form Field configuration
+form: $/ksv/services/models/item/fields.yaml
+
+# Model Class name
+modelClass: KSV\Services\Models\Item
+
+# Default redirect location
+defaultRedirect: ksv/services/items
+
+# Create page
+create:
+    title: Создать услугу
+    redirect: ksv/services/items/update/:id
+    redirectClose: ksv/services/items
+
+# Update page
+update:
+    title: Обновить услугу
+    redirect: ksv/services/items
+    redirectClose: ksv/services/items
+
+# Preview page
+preview:
+    title: Просмотреть услугу

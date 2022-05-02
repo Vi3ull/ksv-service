@@ -1,0 +1,64 @@
+.service-card {
+  --bg-color: var(--base-white);
+  --img-color: var(--medium-black);
+  --title-color: var(--base-black);
+  --description-color: var(--base-gray);
+
+  position: relative;
+  height: 100%;
+  background-color: var(--bg-color);
+  padding: rem(50);
+  transition: $transition;
+
+  &:hover {
+    --bg-color: var(--base-orange);
+    --img-color: var(--base-white);
+    --title-color: var(--base-white);
+    --description-color: var(--base-white);
+  }
+
+  // .service-card__img-wrap
+
+  &__img-wrap {
+    width: rem(30);
+    height: rem(30);
+    color: var(--img-color);
+    margin-bottom: rem(30);
+  }
+
+  // .service-card__img
+
+  &__img {
+  }
+
+  // .service-card__title
+
+  &__title {
+    @include title($font-size: 22, $color: var(--title-color));
+    margin: 0 0 rem(15);
+  }
+
+  // .service-card__description
+
+  &__description {
+    @include description($color: var(--description-color));
+  }
+
+  // .service-card__link
+
+  &__link {
+    &:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      display: block;
+      z-index: map-get($z-layers, link);
+    }
+      
+    &:focus-visible {
+      &:before {
+        @extend %focus;
+      }
+    }
+  }
+}

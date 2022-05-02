@@ -1,0 +1,10 @@
+{% for item in items %}
+<li class="services__list-item">
+  {% 
+    partial "components/service-card" 
+    title=item.name 
+    description=item.summary
+    href="/services" ~ '/' ~ item.category.slug ~ '/' ~ item.slug
+  %}
+</li>
+{% endfor %}

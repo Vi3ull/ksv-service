@@ -1,0 +1,65 @@
+.carousel {
+  --carouselOwerflowX: auto;
+  --carouselSlidesCount: 1;
+  --carouselSlidesGap: 0px;
+  --carouselScrollPaddingSize: rem(8);
+  --carouselScrollPadding: var(--carouselScrollPaddingSize);
+  
+  position: relative;
+  overflow: var(--carouselOwerflowX);
+  scroll-snap-type: x mandatory;
+
+  // .carousel--inited
+
+  &--inited {
+    --carouselSlidesGap: 0;
+    --carouselOwerflowX: hidden;
+    --carouselScrollPadding: calc(var(--carouselScrollPaddingSize) + var(--scrollbarSize));
+  }
+
+  // .carousel__inner
+
+  &__inner {
+    display: flex;
+    padding-bottom: var(--carouselScrollPadding);
+  }
+
+  // .carousel__slide
+
+  &__slide {
+    flex-shrink: 0;
+    width: calc((100% - (var( --carouselSlidesCount ) - 1)*var(--carouselSlidesGap))/var( --carouselSlidesCount ));
+  }
+
+  // .carousel__pagination
+
+  &__pagination {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: rem(20);
+    z-index: 1;
+    text-align: center;
+    list-style: none;
+  }
+  
+  // .carousel__pagination-bullet
+
+  &__pagination-bullet {
+    display: inline-block;
+    width: rem(10);
+    height: rem(10);
+    margin: rem(2);
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid var(--base-white);
+    border-radius: rem(10);
+
+    // .carousel__pagination-bullet--state--active
+
+    &--state--active {
+      background-color: var(--base-white);    
+    }
+  }
+}

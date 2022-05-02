@@ -1,0 +1,32 @@
+{% for block in components %}
+  {% if block._group == "hero" %}
+    {% partial "components/hero" data=block %}
+  {% endif %}
+  {% if block._group == "about" %}
+    {% partial "components/about" data=block %}
+  {% endif %}
+  {% if block._group == "why-us" %}
+    {% partial "components/why-us" data=block %}
+  {% endif %}
+  {% if block._group == "products" %}
+    {% partial "components/products" data=block %}
+  {% endif %}
+  {% if block._group == "pricing" %}
+    {% partial "components/pricing" data=block %}
+  {% endif %}
+  {% if block._group == "work" %}
+    {% partial "components/work" data=block %}
+  {% endif %}
+  {% if block._group == "partners" %}
+    {% partial "components/partners" data=block %}
+  {% endif %}
+  {% if block._group == "services" %}
+    {% partial "components/services" data=block %}
+  {% endif %}
+  {% if block._group == "contacts" %}
+    {% partial "components/contacts" data=block %}
+  {% endif %}
+  {% if block._group == "editor" %}
+    {% partial "components/text" data=block %}
+  {% endif %}
+{% endfor %}

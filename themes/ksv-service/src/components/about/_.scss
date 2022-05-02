@@ -1,0 +1,21 @@
+.about {
+  @include py-100;
+
+  // .about__list
+
+  &__list {
+    @include grid;
+  }
+
+  // .about__list-item
+
+  &__list-item {
+    grid-column-start: span 12;
+    @media screen and (min-width: #{map-get($screens, sm)}) {
+      grid-column-start: span 6;  
+    }
+    @media screen and (min-width: #{map-get($screens, lg)}) {
+      grid-column-start: span 4;
+    }
+  }
+}

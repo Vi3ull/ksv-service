@@ -1,0 +1,21 @@
+ksv_theme_blocks:
+    type: repeater
+    span: full
+    prompt: Добавить блок
+    tab: Блоки темы
+    form:
+        fields:
+            title:
+                label: Название блока
+                span: full
+            id:
+              label: 123
+              cssClass: hidden
+            type:
+                label: Текст
+                type: repeater
+                minItems: 1
+                maxItems: 1
+                prompt: Выбрать тип
+                style: collapsed
+                groups: ~/themes/ksv-service/partials/components/config.yaml

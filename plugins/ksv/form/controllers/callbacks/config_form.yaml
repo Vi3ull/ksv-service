@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Обратный звонок
+
+# Model Form Field configuration
+form: $/ksv/form/models/callback/fields.yaml
+
+# Model Class name
+modelClass: KSV\Form\Models\Callback
+
+# Default redirect location
+defaultRedirect: ksv/form/callbacks
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: ksv/form/callbacks/update/:id
+    redirectClose: ksv/form/callbacks
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: ksv/form/callbacks
+    redirectClose: ksv/form/callbacks
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

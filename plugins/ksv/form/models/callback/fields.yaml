@@ -1,0 +1,17 @@
+fields:
+    created_at:
+        label: Дата
+        type: datepicker
+        readOnly: true
+
+    name:
+        label: Имя
+        span: auto
+        readOnly: true
+
+    phone:
+        label: Телефон
+        span: auto
+        readOnly: true
+
+ 

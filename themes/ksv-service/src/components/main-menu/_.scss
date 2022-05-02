@@ -1,0 +1,119 @@
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  // .main-menu__header
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: var(--headerInnerHeight);
+    padding: rem(12) rem(27);
+  }
+
+  // .main-menu__footer    
+
+  &__footer {
+    padding: rem(12) rem(27);
+  }
+
+  // .main-menu__btn-close
+
+  &__btn-close {
+    display: inline-flex;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0;
+    
+    &:focus-visible { 
+      @extend %focus;
+    }
+  }
+
+  // .main-menu__btn-icon
+
+  &__btn-icon {
+    width: rem(52);
+    height: rem(52);
+    color: var(--base-black);
+    transition: $transition;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: var(--medium-white);
+    }  
+  }
+
+  // .main-menu__nav
+
+  &__nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: rem(10) rem(15);
+  }
+
+  // .main-menu__list
+
+  &__list {  
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+
+  // .main-menu__item
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // .main-menu__link
+
+  &__link {
+    color: var(--base-black);
+    display: block;
+    font-family: map-get($fonts, ubuntu);
+    font-size: rem(14);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: .02em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: $transition;
+    border-radius: 5px;
+    padding: rem(10);
+    margin: rem(2);
+
+    &:hover {
+      background-color: var(--medium-white);
+    }
+
+    &:focus-visible { 
+      @extend %focus;
+    }
+
+    // .main-menu__link--state--active
+
+    &--state--active {
+      color: var(--base-red);
+    }
+
+    // .main-menu__link--state--inactive
+
+    &--state--inactive {
+      color: var(--medium-white);
+    }
+  }
+}

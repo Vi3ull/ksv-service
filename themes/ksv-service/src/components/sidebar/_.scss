@@ -1,0 +1,28 @@
+.sidebar {
+  display: none;
+  flex-direction: column; 
+  flex: 0 0 30%; 
+  background-color: var(--light-white);
+  padding: em(30) em(15);
+
+  @media screen and (min-width: #{map-get($screens, lg)}) {
+    display: flex;
+  }
+
+  // .sidebar__block
+
+  &__block {
+    background-color: var(--base-white);
+    padding: em(15);
+
+    &:not(:first-child) {
+      margin-top: em(20);
+    }
+  }
+
+   // .sidebar__title
+
+   &__title {
+     @include title($font-size: 16);
+  }
+}

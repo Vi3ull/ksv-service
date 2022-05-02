@@ -1,0 +1,74 @@
+.services {
+  @include py-100;
+  background-color: var(--light-white);
+
+  // .services__inner
+
+  &__inner {
+  }
+
+  
+  // .services__categories-list
+
+  &__categories-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: em(40);
+  }
+
+  // .services__categories-item
+
+  &__categories-item {
+    margin-top: em(5);
+    margin-right: em(10);
+  }
+
+  // .services__categories-link
+
+  &__categories-link {
+    @include title($font-size: 14, $color: var(--base-white));
+    padding: em(5) em(10);
+    background-color: var(--base-black);
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      background-color: var(--base-orange);
+    }
+
+    &:focus-visible {
+      @extend %focus;
+    }
+  }
+
+  // .services__intro
+
+  &__intro {
+    @media screen and (min-width: #{map-get($screens, md)}) {
+      width: 50%;
+    }
+  }
+
+  // .services__list
+
+  &__list {
+    @include grid($column-gap: 0, $row-gap: 0);
+  }
+
+  // .services__list-item
+
+  &__list-item {
+    grid-column: span 12;
+    @media screen and (min-width: #{map-get($screens, md)}) {
+      grid-column: span 4;
+    }
+  }
+
+  // .services__btn-inner
+
+  &__btn-inner {
+    text-align: center;
+    margin: em(40) 0 0;
+  }
+}

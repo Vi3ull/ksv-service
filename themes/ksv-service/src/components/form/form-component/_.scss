@@ -1,0 +1,34 @@
+.form-component {
+
+  // .form-component__label
+
+  &__label {
+    color: var(--color-second);
+    font-family: map-get($fonts, hind);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  // .form-component__control
+
+  &__control {
+    margin-top: 0.3125rem;
+  }
+
+  // .form-component__validation-error
+
+  &__validation-error {
+    color: var(--color-accent);
+    display: none;
+    font-family: map-get($fonts, hind);
+    font-size: .875rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-top: var(--space-5);
+  }
+}

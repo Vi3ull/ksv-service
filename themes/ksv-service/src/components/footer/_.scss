@@ -1,0 +1,140 @@
+.footer {
+  padding: rem(80) 0 rem(30) 0;
+  border-top: 2px solid var(--base-orange);
+  background-color: var(--base-black);
+  font-family: map-get($fonts, hind);
+  font-size: rem(16);
+  color: var(--base-white); 
+  
+  // .footer__inner
+
+  &__inner {
+    align-items: center;
+    line-height: 1.5;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: rem(32);
+    grid-template-areas: 
+      "logo"
+      "address"
+      "contacts"
+      "button"
+      "menu"
+    ;
+
+    @media screen and (min-width: #{map-get($screens, sm)}) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 
+        "logo button"
+        "address contacts"
+        "menu menu"
+      ;
+    }
+
+    @media screen and (min-width: #{map-get($screens, lg)}) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: 
+        "logo address contacts button"
+        "menu menu menu menu"
+      ;
+    }
+  }
+
+  // .footer__about
+
+  &__area-logo {
+    grid-area: logo;
+  }
+
+  // .footer__address
+
+  &__address {
+    grid-area: address;
+  }
+
+
+  // .footer__contacts-group
+
+  &__contacts-group {
+    grid-area: contacts;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // .footer__contact
+
+  &__contact {
+    text-decoration: none;
+    color: inherit;
+    transition: $transition;
+
+    &:hover {
+      color: var(--base-orange);
+    }
+  }
+
+
+  // .footer__area-btn
+
+  &__area-btn {
+    grid-area: button;
+    font-weight: 600;
+    letter-spacing: em(1);
+  }
+
+  // .footer__btn
+
+  &__btn {
+    max-width: rem(305);
+  }
+
+  // .footer__menu
+
+  &__menu {
+    grid-area: menu;
+    padding-top: rem(20);
+
+    @media screen and (min-width: #{map-get($screens, sm)}) {
+      border-top: 2px solid var(--base-white);
+    }
+  }
+
+  // .footer__menu-list
+
+  &__menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @media screen and (min-width: #{map-get($screens, sm)}) {
+      flex-direction: row;
+    }
+  }
+
+  // .footer__menu-item
+
+  &__menu-item {
+    flex-basis: 25%;
+    margin-top: rem(32);
+  }
+
+  // .footer__menu-link
+
+  &__menu-link {
+    font-weight: 700;
+    color: inherit;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+    transition: $transition;
+
+    &:hover {
+      color: var(--medium-black);
+    }
+
+    &:focus-visible {
+      @extend %focus;
+    }
+  }
+}

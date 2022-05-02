@@ -1,0 +1,5 @@
+{% for item in items if not item.viewBag.isHidden %}
+    <li class="footer__menu-item">  
+        {% partial __SELF__ ~ "::link" item=item %}
+    </li>
+{% endfor %}

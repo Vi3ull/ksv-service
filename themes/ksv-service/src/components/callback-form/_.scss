@@ -1,0 +1,24 @@
+.callback-form {
+
+  // .callback-form__component
+
+  &__component {
+    margin-bottom: em(30);
+    text-align: left;
+  }
+
+  // .callback-form__field
+
+  &__field {
+    border-bottom: 2px solid var(--base-black);
+    outline-color: var(--base-black);
+  }
+
+  // .callback-form__btn
+
+  &__btn {
+    font-weight: 600;
+    letter-spacing: .1em;
+    margin: em(30) auto 0;
+  }
+}

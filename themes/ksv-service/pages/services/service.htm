@@ -1,0 +1,10 @@
+url = "/services/:category/:item"
+layout = "default"
+title = "Услуга"
+is_hidden = 0
+
+[ServicesItem]
+slugCategory = "{{ :category }}"
+slugItem = "{{ :item }}"
+==
+{% component "ServicesItem" %}

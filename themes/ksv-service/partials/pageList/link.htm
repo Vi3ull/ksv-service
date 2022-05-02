@@ -1,0 +1,12 @@
+{% if item.url %}
+  <a 
+    href="{{ item.code ? item.code : item.url }}" 
+    class="page-list__link"
+    title="{{ item.title }}"
+    {{ item.viewBag.isExternal ? 'target="_blank"' }}
+  >
+    {{ item.title }}
+  </a>
+{% else %}
+  <span class="page-list__link page-list__link--state--inactive">{{ item.title }}</span>
+{% endif %}

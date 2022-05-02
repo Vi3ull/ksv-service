@@ -1,0 +1,103 @@
+==
+{% set blockId = random() %}
+
+<section class="contacts">
+  <div class="container">
+    <div class="contacts__inner">
+      <div class="contacts__form-wrapper">
+        <div class="contacts__title">
+          Связаться с нами
+        </div>
+        {{ form_open({ 
+          request: "Feedback::onSend", 
+          class: "feedback-form",
+          "data-request": "Feedback::onSend",
+          "data-request-success": "$(this).find('input[type=text], input[type=email], textarea').val('');",
+          "data-request-flash": true
+        })}}
+          {% flash %}
+            <div class="alert alert--{{ type }}">
+              {{ message }}
+            </div>
+          {% endflash %}
+          {% partial "components/form/form-component" 
+            body 
+            class="feedback-form__component" 
+            label="Имя" 
+            name="name" 
+          %}
+            {% partial "components/form/input" 
+              placeholder="Иванов Иван Иванович" 
+              name="name" 
+              id="name-" ~ blockId 
+              class="feedback-form__field" 
+            %}
+          {%  endpartial %}
+  
+          {% partial "components/form/form-component" 
+            body 
+            class="feedback-form__component" 
+            label="Телефон" 
+            name="phone" 
+          %}
+            {% partial "components/form/input" 
+              placeholder="+7 (999) 999-99-99" 
+              name="phone" 
+              id="phone-" ~ blockId  
+              class="feedback-form__field" 
+            %}
+          {%  endpartial %}
+  
+          {% partial "components/form/form-component" 
+            body 
+            class="feedback-form__component" 
+            label="Почта" 
+            name="email" 
+          %}
+            {% partial "components/form/input" 
+              placeholder="info@example.com" 
+              name="email" 
+              id="email-" ~ blockId  
+              class="feedback-form__field" 
+            %}
+          {%  endpartial %}
+  
+          {% partial "components/form/form-component" 
+            body 
+            class="feedback-form__component" 
+            label="Сообщение" 
+            name="email" 
+          %}
+            {% partial "components/form/textarea" 
+              placeholder="Введите текст сообщения..." 
+              name="form_message" 
+              id="message-" ~ blockId  
+              class="feedback-form__field" 
+            %}
+          {%  endpartial %}
+          <button type="submit" class="contacts-form__btn btn btn--bg-color--orange btn--rounded--sm">Отправить</button>    
+        {{ form_close() }}
+      </div>
+      <div class="contacts__map">
+        {% partial 'components/map.htm' 
+          coordinates=data.coordinates
+          zoom=data.zoom
+          name=data.name
+          iconCaption=data.iconCaption
+        %}
+      </div>
+      <div class="contacts__info">
+        {% for item in data.info %}
+        <div class="contacts__info-column">
+          <div class="contacts__info-heading">
+            {{ item.title | raw }}
+          </div>
+          <div class="contacts__info-content">
+            {{ item.description | raw }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

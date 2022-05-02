@@ -1,0 +1,358 @@
+editor:
+  name: Редактор
+  description: Редактор
+  icon: icon-pencil-square-o
+  fields:
+    content: 
+      type: richeditor
+
+hero:
+  name: Карусель
+  description: Карусель
+  icon: icon-film
+  fields:
+    hero_item: 
+      type: repeater
+      prompt: Добавить слайд
+      style: collapsed
+      form: 
+        fields:
+          image: 
+            label: Изображение
+            type: mediafinder
+            required: true
+          title:
+            label: Заголовок
+            type: richeditor
+            toolbarButtons: paragraphStyle, |, paragraphFormat
+            size: small
+          description:
+            label: Описание
+            type: richeditor
+            size: large
+          btn_link: 
+            label: Ссылка кнопки
+            type: text
+            span: left
+            default: "#"
+          btn_text: 
+            label: Текст кнопки
+            type: text
+            span: right
+
+about:
+  name: О компании
+  description: О компании
+  icon: icon-building
+  fields:
+    about_item:
+      type: repeater
+      style: collapsed
+      prompt: Добавить элемент
+      form:
+        fields:
+          title:
+            label: Заголовок
+            type: richeditor
+            toolbarButtons: paragraphStyle, |, paragraphFormat
+            size: small
+          description:
+            label: Описание
+            type: richeditor
+            size: large
+          image: 
+            label: Изображение
+            type: mediafinder
+            required: true
+
+why-us:
+  name: Почему мы
+  description: Почему мы
+  icon: icon-question-circle-o
+  fields:
+    title:
+      label: Заголовок
+      type: richeditor
+      toolbarButtons: paragraphStyle, |, paragraphFormat
+      size: small
+    description:
+      label: Описание
+      type: richeditor
+      size: large
+    btn_link: 
+      label: Ссылка кнопки
+      type: text
+      span: left
+      default: "#"
+    btn_text: 
+      label: Текст кнопки
+      type: text
+      span: right
+    accordion:
+      label: Аккордион 
+      type: repeater
+      prompt: Добавить слайд
+      span: full
+      style: collapsed
+      form: 
+        fields:
+          title:
+            label: Заголовок
+            type: richeditor
+            toolbarButtons: paragraphStyle, |, paragraphFormat
+            size: small
+          description:
+            label: Описание
+            type: richeditor
+            size: large
+
+products:
+  name: Продукция
+  description: Продукция
+  icon: icon-shopping-basket
+  fields:
+    title:
+      label: Заголовок
+      type: richeditor
+      toolbarButtons: paragraphStyle, |, paragraphFormat
+      size: small
+    description:
+      label: Описание
+      type: richeditor
+      size: large
+    list:
+      label: Список продуктов 
+      type: repeater
+      prompt: Добавить продукт
+      span: full
+      style: collapsed
+      form: 
+        fields:
+          image: 
+            label: Изображение
+            type: mediafinder
+            required: true
+          title:
+            label: Заголовок
+            type: richeditor
+            toolbarButtons: paragraphStyle, underline, paragraphFormat
+            size: small
+          description:
+            label: Описание
+            type: richeditor
+            size: large
+          btn_link: 
+            label: Ссылка кнопки
+            type: text
+            span: left
+            default: "#"
+          btn_text: 
+            label: Текст кнопки
+            type: text
+            span: right
+
+pricing:
+  name: Прайс-лист
+  description: Прайс-лист
+  icon: icon-money
+  fields:
+    pricing_item:
+      type: repeater
+      style: collapsed
+      form:
+        fields:
+          title:
+            label: Заголовок
+            type: richeditor
+            toolbarButtons: paragraphStyle, |, paragraphFormat
+            size: small
+            required: true
+          description:
+            label: Описание
+            type: richeditor
+            size: large
+          list:
+            label: Список опций 
+            type: repeater
+            prompt: Добавить опцию
+            span: full
+            style: collapsed
+            form: 
+              fields:
+                text:
+                  label: Текст
+                  type: text
+                  size: small
+          btn_link: 
+            label: Ссылка кнопки
+            type: text
+            span: left
+            default: "#"
+          btn_text: 
+            label: Текст кнопки
+            type: text
+            span: right
+
+work:
+  name: Наши работы
+  description: Наши работы
+  icon: icon-briefcase
+  fields:
+    title:
+      label: Заголовок
+      type: richeditor
+      toolbarButtons: paragraphStyle, |, paragraphFormat
+      size: small
+    description:
+      label: Описание
+      type: richeditor
+      size: large
+    list:
+      label: Список работ
+      type: repeater
+      prompt: Добавить элемент
+      span: full
+      style: collapsed
+      maxItems: 5
+      form: 
+        fields:
+          image: 
+            label: Изображение
+            type: mediafinder
+            required: true
+          title:
+            label: Заголовок
+            type: richeditor
+            toolbarButtons: paragraphStyle, underline, paragraphFormat
+            size: small
+            required: true
+          description:
+            label: Описание
+            type: richeditor
+            size: large
+            required: true
+          link: 
+            label: Ссылка
+            type: text
+            required: true
+            default: "#"
+          tags: 
+            label: Теги
+            type: repeater
+            prompt: Добавить тег
+            span: full
+            style: collapsed
+            form:
+              fields: 
+                name: 
+                  type: text
+
+partners:
+  name: Наши партнёры
+  description: Наши партнёры
+  icon: icon-handshake-o
+  fields:
+    list:
+      label: Список партнёров
+      type: repeater
+      prompt: Добавить элемент
+      span: full
+      style: collapsed
+      form: 
+        fields:
+          name: 
+            label: Название
+            type: text
+          image: 
+            label: Изображение
+            type: mediafinder
+
+services:
+  name: Наши услуги
+  description: Наши услуги
+  icon: icon-wrench
+  fields:
+    title:
+      label: Заголовок
+      type: richeditor
+      toolbarButtons: paragraphStyle, |, paragraphFormat
+      size: small
+    description:
+      label: Описание
+      type: richeditor
+      size: large
+    list:
+      label: Список услуг
+      type: repeater
+      prompt: Добавить элемент
+      span: full
+      style: collapsed
+      form: 
+        fields:
+          title:
+            label: Заголовок
+            type: richeditor
+            toolbarButtons: paragraphStyle, underline, paragraphFormat
+            size: small
+            required: true
+          description:
+            label: Описание
+            type: richeditor
+            size: large
+            required: true
+          link: 
+            label: Ссылка
+            type: text
+            required: true
+            default: "#"
+
+contacts:
+  name: Форма обратной связи
+  description: Форма обратной связи
+  icon: icon-address-book-o
+  fields:
+    map: 
+      label: Карта
+      type: section
+    coordinates: 
+      label: Координаты
+      type: text
+      default: 47.245463574259446, 39.70956000000002
+      span: left
+      comment: <a href="http://dimik.github.io/ymaps/examples/location-tool/">Сайт для определения координат</a>
+      commentHtml: true
+    zoom: 
+      label: Масштаб
+      type: number
+      min: 0
+      max: 16
+      default: 16
+      span: right
+    name: 
+      label: Название метки
+      type: text
+      default: Россия, Ростов-на-Дону, улица Нансена, 119/1
+      span: left
+    iconCaption:
+      label: Описание
+      type: text
+      default: Офис, ул. Нансена, 119/1
+      span: right
+    info:
+      label: Список контактов
+      type: repeater
+      prompt: Добавить элемент
+      span: full
+      style: collapsed
+      maxItems: 3
+      form:
+        fields:
+          title:
+            label: Заголовок
+            type: richeditor
+            toolbarButtons: paragraphStyle, |, paragraphFormat
+            size: small
+          description:
+            label: Описание
+            type: richeditor
+            size: large

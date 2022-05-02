@@ -1,0 +1,6 @@
+<hr>
+<h2>{{ item.name }}</h2>
+<p>{{ item.description_html | raw }}</p>
+<hr>
+Перейти к категории данного предмета: <a href="/services/{{ item.category.slug }}">{{ item.category.name }}</a>
+<hr>

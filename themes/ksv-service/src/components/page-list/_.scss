@@ -1,0 +1,65 @@
+.page-list {
+  padding: em(50) 0;
+
+  @media screen and (min-width: #{map-get($screens, md)}) {
+    columns: 3;
+  }
+
+  // .page-list__item
+
+  &__item {
+    display: block;
+    padding: rem(8) 0;
+  }
+
+  // .page-list__dropdown
+
+  &__dropdown {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    padding-left: em(8);
+  }
+
+  // .page-list__dropdown-item
+
+  &__dropdown-item {
+    &:before {
+      content: "-";
+      font-size: rem(24);
+      color: var(--base-orange);
+      vertical-align: bottom;
+    }
+  }
+
+  // .page-list__link
+
+  &__link {
+    color: var(--base-black);
+    font-family: map-get($fonts, ubuntu);
+    font-size: rem(14);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: .02em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: $transition;
+    outline: none;
+
+    &:hover, &:focus-visible {
+      color: var(--base-orange);
+    }
+
+    // .page-list__link--state--active
+
+    &--state--active {
+      color: var(--base-red);
+    }
+
+    // .page-list__link--state--inactive
+
+    &--state--inactive {
+      color: var(--medium-white);
+    }
+  }
+}

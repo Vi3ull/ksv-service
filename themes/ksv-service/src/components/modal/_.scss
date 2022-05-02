@@ -1,0 +1,105 @@
+.modal {
+  --modalOpacity: 0;
+  --modalVisibility: hidden;
+
+  &--show {
+    --modalOpacity: 1;
+    --modalVisibility: visible;
+  }
+
+  &:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: map-get($z-layers, modal);
+    width: 100%;
+    height: 100%;
+    opacity: var(--modalOpacity);
+    visibility: var(--modalVisibility);
+    overflow: hidden;
+    background-color: var(--overlay);
+    transition: $transition; 
+  }
+  
+  // .modal__wrapper
+
+  &__wrapper {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: map-get($z-layers, modal);
+    max-width: 80vw;
+    min-width: 30vw;
+    max-height: 70vh;
+    height: auto;
+    opacity: var(--modalOpacity);
+    visibility: var(--modalVisibility);
+    background-color: var(--base-white);
+    padding: rem(30);
+    margin: 0 auto;
+    transform: translate3d(0,-50%,0);
+    overflow-y: auto;
+
+    @media screen and (min-width: #{map-get($screens, md)}) {
+        max-width: 45vw;
+    }
+  }
+
+  // .modal__close
+
+  &__close {
+    float: right;
+    background-color: transparent;
+    border: none;
+    color: var(--medium-gray);
+    font-size: rem(14);
+    font-weight: 700;
+    transition: $transition;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--dark-gray);
+    }
+
+    &:focus-visible {
+      @extend %focus;
+    }
+  }
+
+  // .modal__content
+
+  &__content {
+    margin-top: rem(30);
+    padding: rem(5) 0;
+  }
+
+  // .modal__title
+
+  &__title {
+    @include title($font-size: 22);
+  }
+
+  // .modal__body
+
+  &__body {
+    @include description;
+    margin: em(20) auto;
+  }
+
+  // .modal__footer
+
+  &__footer {
+  }
+
+  // .modal__list-item
+
+  &__footer-item {
+    display: inline-flex;
+    padding: 0 rem(2);
+    font-family: map-get($fonts, hind);
+    font-size: rem(14);
+    font-weight: 500;
+    color: var(--base-black);
+  }
+}

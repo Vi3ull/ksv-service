@@ -1,0 +1,7 @@
+<div class="footer__menu">
+    {% if __SELF__.menuItems %}
+        <ul class="footer__menu-list">
+            {% partial __SELF__ ~ "::items" items=__SELF__.menuItems %}
+        </ul>
+    {% endif %}
+</div>

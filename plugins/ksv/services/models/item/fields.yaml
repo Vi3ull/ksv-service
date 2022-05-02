@@ -1,0 +1,46 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+        hidden: true
+
+    name:
+        label: Название
+        span: auto
+    
+    slug:
+        label: Ссылка
+        span: auto
+        preset:
+            field: name
+
+    meta_title:
+        label: meta title
+        type: text
+        span: left
+    
+    meta_description:
+        label: meta description
+        type: text
+        span: right
+
+    category:
+        label: Категория
+        type: relation
+        span: auto
+
+    summary:
+        label: Краткое описание
+        type: text
+        span: right
+            
+    description:
+        label: Контент
+        type: editorjs
+        span: full
+
+    

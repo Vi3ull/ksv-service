@@ -1,0 +1,27 @@
+.about-card {
+
+  // .about-card__title
+
+  &__title {
+    @include title;
+  }
+
+  // .about-card__description
+
+  &__description {
+    @include description;
+  }
+
+  // .about-card__img-wrap
+
+  &__img-wrap {
+    @include img-wrap;
+    margin: rem(60) 0 0 0;
+  }
+
+  // .about-card__img
+
+  &__img {
+    @include img;
+  }
+}
