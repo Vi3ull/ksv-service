@@ -4,10 +4,10 @@ const glob = require('glob');
 const nodePath = require('path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const partytown = require('@builder.io/partytown/utils');
 
 require('dotenv').config({ path: '../../.env' });
-require('laravel-mix-clean');
 require('laravel-mix-webp');
 require('laravel-mix-polyfill');
 
@@ -33,18 +33,13 @@ mix
 	.babelConfig({
 		plugins: ['@babel/plugin-syntax-dynamic-import'],
 	})
-	.clean({
-		cleanOnceBeforeBuildPatterns: [ `${ publicFolder }/*` ],
-	 })
 	.copy(partytown.libDirPath(), 'assets/js/~partytown')
 	.options({
 		processCssUrls: false, // Отключаем автоматическое обновление URL в CSS
 		postCss: [
-				// Добавляем вендорные префиксы в CSS
 				require('autoprefixer')({
-						cascade: false, // Отключаем выравнивание вендорных префиксов
+						cascade: false,
 				}),
-				// Группируем стили по медиа-запросам
 				require('postcss-sort-media-queries'),
 		],
 	})
@@ -52,7 +47,6 @@ mix
 	.alias({
 		'@c': nodePath.join(__dirname, './src/components')
 	})
-	// Используем полифиллы
 	.polyfill({
 			enabled: true,
 			useBuiltIns: "usage",
@@ -76,6 +70,9 @@ mix
 								},
 						],
 				}),
+				new CleanWebpackPlugin({
+					cleanOnceBeforeBuildPatterns: [ `${ publicFolder }/**/*` ],
+				})
 		],
 	})
 

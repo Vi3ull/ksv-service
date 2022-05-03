@@ -1,7 +1,7 @@
 export default function initMap($map) {  
-  const [latitude, longitude] = $map.dataset.coordinates.split(',');
+  const createMap = () => {
+    const [latitude, longitude] = $map.dataset.coordinates.split(',');
 
-  const init = () => {
     const myMap = new ymaps.Map($map.id, {
       center: [latitude, longitude],
       zoom: $map.dataset.zoom,
@@ -31,5 +31,36 @@ export default function initMap($map) {
     myMap.geoObjects.add(myGeoObject);
   }
 
-  ymaps.ready(init);
+  const loadScript = (url, callback) => {
+    if (document.getElementById("ymaps-api"))
+      return
+
+    const script = document.createElement("script");
+
+    if (script.readyState){  
+        script.onreadystatechange = function(){
+            if (script.readyState == "loaded" ||
+                script.readyState == "complete"){
+                script.onreadystatechange = null;
+                callback();
+            }
+        };
+    } else {
+        script.onload = function(){
+            callback();
+        };
+    }
+
+    script.src = url;
+    script.id = "ymaps-api";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  }
+
+  const init = () => {
+    loadScript("https://api-maps.yandex.ru/2.1/?apikey=c0ebd0d1-6836-48e6-831b-58bd7cb0548f&lang=ru_RU", () => {
+      ymaps.load(createMap);
+    })
+  }
+
+  init();
 }

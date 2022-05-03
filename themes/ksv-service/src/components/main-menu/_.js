@@ -25,7 +25,7 @@ const clickDropdownBtnOpenHandler = (e) => {
   focusLock.off(currentBranch);
   currentBranch = e.target.parentNode;
   currentBranch.classList.add("dropdown--active");
- 
+
   currentBranch = currentBranch.querySelector(".js-dropdown-menu");
   onDropdownBtnOpenHandler();
   onDropdownBtnCloseHandler();
